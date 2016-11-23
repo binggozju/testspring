@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="person" class="org.binggo.testspring.Person">
-		<constructor-arg value="John"/>
+		<constructor-arg value="Binggo"/>
 	</bean>
 	
 </beans> 
