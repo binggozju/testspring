@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<bean id="person" class="org.binggo.testspring.Person">
 		<constructor-arg value="Binggo"/>
 	</bean>
+	
+	<bean id="logger" class="org.binggo.testspring.Logger" />
+	
+	<!-- aop config -->
+	<aop:config>
+		<aop:aspect ref="logger">
+			<aop:pointcut id="action" expression="execution(* org.binggo.testspring.Person.sayHello(..))" />
+			
+			<aop:before pointcut-ref="action" method="logBeforeExec" />
+			<aop:after pointcut-ref="action" method="logAfterExec" />
+			
+			<!--
+			<aop:before pointcut="execution(* org.binggo.testspring.Person.sayHello(..))" 
+				method="logBeforeExec"/>
+			-->
+		</aop:aspect>
+	</aop:config>
 	
 </beans> 

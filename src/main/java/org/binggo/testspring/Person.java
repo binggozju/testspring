@@ -1,6 +1,6 @@
 package org.binggo.testspring;
 
-public class Person {
+public class Person implements Greetable {
 	
 	private String name;
 	
@@ -16,5 +16,11 @@ public class Person {
 		this.name = name;
 	}
 	
-
+	public void run() {
+		System.out.println("i'm running");
+	}
+	
+	public void sayHello() {
+		System.out.println(String.format("hello, i'm %s", name));
+	}
 }
