@@ -13,8 +13,9 @@ public class TestSpring
 	public static void main( String[] args )
     {
 		ApplicationContext context = new ClassPathXmlApplicationContext(SPRING_XML_FILE);
-		Greetable greetPerson = (Greetable) context.getBean("person");
-		greetPerson.sayHello();
+		Person person = (Person) context.getBean("person");
+		person.sayHello();
+		person.run();
 		
 		/*
 		BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource(SPRING_XML_FILE));

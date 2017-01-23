@@ -1,6 +1,6 @@
 package org.binggo.testspring;
 
-public class Person implements Greetable {
+public class Person {
 	
 	private String name;
 	
