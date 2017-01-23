@@ -17,7 +17,7 @@ public class Person implements Greetable {
 	}
 	
 	public void run() {
-		System.out.println("i'm running");
+		System.out.println(String.format("%s are running", name));
 	}
 	
 	public void sayHello() {

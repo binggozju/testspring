@@ -13,13 +13,13 @@ public class TestSpring
 	public static void main( String[] args )
     {
 		ApplicationContext context = new ClassPathXmlApplicationContext(SPRING_XML_FILE);
-		//Person person = (Person) context.getBean("person");
-		Greetable person = (Greetable) context.getBean("person");
+		Greetable greetPerson = (Greetable) context.getBean("person");
+		greetPerson.sayHello();
 		
-		//BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource(SPRING_XML_FILE));
-        //Person person = (Person) beanFactory.getBean("person");
-       
-		person.sayHello();
-		//person.run();
+		/*
+		BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource(SPRING_XML_FILE));
+        Person person = (Person) beanFactory.getBean("person");
+        person.run();
+        */
     }
 }
